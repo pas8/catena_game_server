@@ -1,0 +1,11 @@
+{
+  "name": "catena_game_server",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "pas8 <whyiampas@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "nodemon": "^2.0.15",
+    "ts-node": "^10.4.0"
+  }
+}
