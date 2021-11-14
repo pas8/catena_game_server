@@ -1,4 +1,4 @@
-const webSocketsServerPort = 8000;
+const webSocketsServerPort = process.env.PORT || 8000 ;
 const webSocketServer = require('websocket').server;
 const http = require('http');
 // Spinning the http server and the websocket server.
@@ -65,7 +65,7 @@ wsServer.on('request', (request) => {
         const is_resolved = type === 'resolve_acsess';
         const ground = is_resolved ? current_room.ground : {};
         const teams = is_resolved ? current_room.teams : {};
-        
+
         user_connection?.sendUTF(JSON.stringify({ type, ground, teams,user_id }));
 
         if (!is_resolved) {
