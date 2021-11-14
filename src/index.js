@@ -64,9 +64,11 @@ wsServer.on('request', (request) => {
 
         const is_resolved = type === 'resolve_acsess';
         const ground = is_resolved ? current_room.ground : {};
-        user_connection?.sendUTF(JSON.stringify({ type, ground, user_id }));
+        const teams = is_resolved ? current_room.teams : {};
+        
+        user_connection?.sendUTF(JSON.stringify({ type, ground, teams,user_id }));
 
-        if (is_resolved) {
+        if (!is_resolved) {
           delete user_connection;
         }
         return;
