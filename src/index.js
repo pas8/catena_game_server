@@ -37,6 +37,7 @@ wsServer.on('request', (request) => {
       case 'asking_for_acsess': {
         let { user_id, connect_room_id } = data;
         const current_room = rooms[connect_room_id];
+        if(!current_room) return;
         user_id = user_id + Date.now();
         current_room.users_which_awaiting = { ...current_room?.users_which_awaiting, [user_id]: connection };
 
